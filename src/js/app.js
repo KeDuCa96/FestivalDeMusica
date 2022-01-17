@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', function(){ //* Recordemo que el D
 
 function iniciarApp() {   //* Arrancamos nuestra app. Una vez inice una función que pueda iniciar otra función se aligera un poco el contentLoaded.
     crearGaleria();       //* Cómo vamos a usar varias funciones, primero las llamamos desde el addEventListener y luego las podemos llamar por otras funcionees.
+    scrollNav();
+}
+
+//? Smooth Srcoll
+function scrollNav() {
+
+    //* Leemos los enlaces
+    const enlace = document.querySelectorAll('.navegacion-principal a');
+    enlace.forEach( enlace => { //* toca iterar en cada uno de los enlace ya que no se puede asociar una funcion a un queryselectorall.
+        enlace.addEventListener('click', function(e){
+            e.preventDefault(); //* con esto prevenimos el comportamiento por default de la funcioon
+            
+            const seccionScroll = e.target.attributes.href.value //* target.attributes nos sirve para leer atributo y con href.value nos traemos el valor solo del atributo href
+            const seccion = document.querySelector(e.target.attributes.href.value); //* aquí ya hemos instansiado la sección donde va a llegar el scroll.
+            seccion.scrollIntoView({ behavior: "smooth"});
+        })
+    });
 }
 
 //? Añadimos imagenes
