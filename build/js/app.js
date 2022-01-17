@@ -5,6 +5,24 @@ document.addEventListener('DOMContentLoaded', function(){ //* Recordemo que el D
 function iniciarApp() {   //* Arrancamos nuestra app. Una vez inice una función que pueda iniciar otra función se aligera un poco el contentLoaded.
     crearGaleria();       //* Cómo vamos a usar varias funciones, primero las llamamos desde el addEventListener y luego las podemos llamar por otras funcionees.
     scrollNav();
+    navFija();
+}
+
+
+//? Navegacion fija
+function navFija() {
+    const barra = document.querySelector('.header');
+    const sobreFestival = document.querySelector('.sobre-festival'); 
+    
+    window.addEventListener('scroll', function(){ //* recordemos que el window selecciona o apunta al DOM ya cargado. Cada vez que hagamos srcoll estaremos esuchando algo.
+
+        if( sobreFestival.getBoundingClientRect().bottom <-0) { //* Este metodo nos sirve para identificar la posicion del elemento que hayamos seleccionado. Nos da toda la información para saber la posición exacta en el DOM. Con el botton estamos indicando que cuando toque la parte inferior del elemento selcciondo con la parte superior del DOM(donde ya encontramos la barra de marcador del browser) va a poder ejecutar la función o acción que querramos.
+            barra.classList.add('fijo'); //* Cuando toque el botton del elemento agregar la clase fijo
+        }else{
+            barra.classList.remove('fijo'); //* cuando ya pase el bottom del elemento elimina la clase
+        }
+    })
+
 }
 
 //? Smooth Srcoll
