@@ -32,6 +32,7 @@ const plumber = require('gulp-plumber');
 const autoprefixer = require('autoprefixer'); //* autoprefixer se encargará de que funcione en cualquier navegador.
 const cssnano = require('cssnano');           //* cssnano comprime nuestro código de css
 const postcss = require('gulp-postcss');      //* transforma el código por medio de los dos anterioes
+const sourcemaps = require('gulp-sourcemaps') //* esta función  nos sirve para poder depurar en el navegador en los fuentes a partir de los compilados o minificados.
 
 //? IMAGENES
 const cache = require('gulp-cache'); //* procesas imagenes en jpg requiere tenerlas en cache, por eso usamos esta dependencia 
@@ -49,8 +50,10 @@ function css(done) {
     //* 1. identificar el arcchivo sass a compilar
     src('src/scss/**/*.scss') // Primero le damos la función que nos dio gulp para identificarlo y encontrar el archivo a compilar. Con los * le dammos a enteder que debe compilar todos los archivos con extensiones .scss
     //* 2. Compilar el archivo
+        .pipe(sourcemaps.init()) //* iniciamos el sourcemaps
         .pipe(plumber()) // Este nos sirve para que no se detenga por errores, simplemente nos indique en la terminal cual es el error y siga escuchando cambios.
-        .pipe(postcss([autoprefixer(), cssnano()  ]))
+        .pipe(postcss([autoprefixer(), cssnano()  ])) //* mejor de css
+        .pipe(sourcemaps.write('.')) //* Ubicaicón donde lo vamos a guardar. Usamos el punto . para que sea la misma ubicación de estilos del CSS.
         .pipe(sass()) // pipe manda la señal y compila con la función de sass, lo mantiene en memoria un momento, pero toca guardarlo proque sino se consume toda la memoria.
         
     //* 3. Almacenarlo
