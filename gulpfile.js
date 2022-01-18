@@ -28,6 +28,10 @@ const { src, dest, watch, parallel} = require('gulp'); //? Cuando tenemos la con
 //? CSS
 const sass = require('gulp-sass')(require('sass'))//instalamos las dependencias. Recordar que esto es sintaxis de NodeJs no de gulp ya estas dependencias estan instaladas y podemos ir instalando las que necesitamos. Tenemos que expesificar el requiere hacia sass
 const plumber = require('gulp-plumber');
+//* Estos 3 nos ayudaran a mejorar el código CSS. No tiene gulp- porque funcionan con CSS.
+const autoprefixer = require('autoprefixer'); //* autoprefixer se encargará de que funcione en cualquier navegador.
+const cssnano = require('cssnano');           //* cssnano comprime nuestro código de css
+const postcss = require('gulp-postcss');      //* transforma el código por medio de los dos anterioes
 
 //? IMAGENES
 const cache = require('gulp-cache'); //* procesas imagenes en jpg requiere tenerlas en cache, por eso usamos esta dependencia 
@@ -46,6 +50,7 @@ function css(done) {
     src('src/scss/**/*.scss') // Primero le damos la función que nos dio gulp para identificarlo y encontrar el archivo a compilar. Con los * le dammos a enteder que debe compilar todos los archivos con extensiones .scss
     //* 2. Compilar el archivo
         .pipe(plumber()) // Este nos sirve para que no se detenga por errores, simplemente nos indique en la terminal cual es el error y siga escuchando cambios.
+        .pipe(postcss([autoprefixer(), cssnano()  ]))
         .pipe(sass()) // pipe manda la señal y compila con la función de sass, lo mantiene en memoria un momento, pero toca guardarlo proque sino se consume toda la memoria.
         
     //* 3. Almacenarlo

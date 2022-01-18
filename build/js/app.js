@@ -22,7 +22,7 @@ function navFija() {
             body.classList.add('body');
         }else{
             barra.classList.remove('fijo'); //* cuando ya pase el bottom del elemento elimina la clase
-            body.classList.remove('body');     //* 
+            body.classList.remove('body');  
         }
     })
 
