@@ -12,14 +12,17 @@ function iniciarApp() {   //* Arrancamos nuestra app. Una vez inice una función
 //? Navegacion fija
 function navFija() {
     const barra = document.querySelector('.header');
-    const sobreFestival = document.querySelector('.sobre-festival'); 
+    const sobreFestival = document.querySelector('.sobre-festival');
+    const body = document.querySelector('body'); 
     
     window.addEventListener('scroll', function(){ //* recordemos que el window selecciona o apunta al DOM ya cargado. Cada vez que hagamos srcoll estaremos esuchando algo.
 
         if( sobreFestival.getBoundingClientRect().bottom <-0) { //* Este metodo nos sirve para identificar la posicion del elemento que hayamos seleccionado. Nos da toda la información para saber la posición exacta en el DOM. Con el botton estamos indicando que cuando toque la parte inferior del elemento selcciondo con la parte superior del DOM(donde ya encontramos la barra de marcador del browser) va a poder ejecutar la función o acción que querramos.
             barra.classList.add('fijo'); //* Cuando toque el botton del elemento agregar la clase fijo
+            body.classList.add('body');
         }else{
             barra.classList.remove('fijo'); //* cuando ya pase el bottom del elemento elimina la clase
+            body.classList.remove('body');     //* 
         }
     })
 
@@ -39,11 +42,11 @@ function clickHandler(enlace) {
     enlace.preventDefault(); //* con esto prevenimos el comportamiento por default de la funcioon
         
     const seccion = document.querySelector(enlace.target.attributes.href.value);//* target.attributes nos sirve para leer atributo y con href.value nos traemos el valor solo del atributo href
-    let offsetTop = seccion.offsetTop;
-    const header = document.querySelector('.header');
-    const headerHeight = header.offsetHeight;
+    let offsetTop = seccion.offsetTop;  //* offsetTop nos indica la cantidad de pixeles que hay entre el borde supeior del elemento padre mas cercano.   
+    const header = document.querySelector('.header');   
+    const headerHeight = header.offsetHeight;  //* nos da el height del elemento incluyendo padding y border en pixeles
 
-    scroll({
+    scroll({ //* Scroll nos permite desplazarnos a un punto exacto.
         top: offsetTop - headerHeight,
         behavior: 'smooth'
     });
