@@ -1,7 +1,7 @@
-@use 'variables' as v; // el as v es el namespace es la forma de abreviar el llamado de variables
+@use 'variables' as v; /* el as v es el namespace es la forma de abreviar el llamado de variables */
 
 
-//? ------------>   GLOBALES
+/* ------------>   GLOBALES */
 html{
     font-size: 62.5%;
     box-sizing: border-box;
@@ -10,7 +10,7 @@ html{
 *,
 *:before,
 *:after{
-    box-sizing: inherit;  //para que el padding no sea un problema
+    box-sizing: inherit;  /* para que el padding no sea un problema */
 }
 
 body{
@@ -61,6 +61,6 @@ img{
     max-width: 100%;
     display: block;
     /* con esto hacemos que la imagen se ajuste automaticamente sin importar el widh y hiegth que le dimos en las etiquetas. */
-    width: 100%; //
+    width: 100%;
     height: auto;
 }

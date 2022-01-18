@@ -1,9 +1,10 @@
-// $ + nombre de la variable : valor que queramos dar, puede ser color, unidad, fuente, etc..
+/*  $ + nombre de la variable : valor que queramos dar, puede ser color, unidad, fuente, etc.. */
 
 
-//? Tipografia
+/*  Tipografia */
 $fuente_principal: 'Montserrat', sans-serif;
-//? COLORES
+
+/*  COLORES */
 $verde : #4cb8b3;
 $rosa : #f53756;
 $amarillo: #fef46D;
@@ -11,7 +12,7 @@ $morado: #752f97;
 $negro: #000000;
 $blanco: #ffffff;
 
-//? MEDIAS QUERYES
+/* MEDIAS QUERYES */
 
 $phone: 480px;
 $tablet: 768px;

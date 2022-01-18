@@ -64,7 +64,7 @@
 
 .bg-amarillo{
     background-color: v.$amarillo;
-    li:nth-child(odd){ //* nth-child es un tipo de selector de imagenes, 
+    li:nth-child(odd){ /* nth-child es un tipo de selector de imagenes,  */
         background-color: darken(v.$amarillo, 15%);
     }
 }

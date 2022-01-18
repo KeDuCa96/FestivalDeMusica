@@ -1,7 +1,7 @@
 @use "base/variables" as v;
 
-//! Las clases declaradas en HTML no tienen nada que ver con el nombre que le demos al mixin.
-//* Así se declara un mixin
+/* Las clases declaradas en HTML no tienen nada que ver con el nombre que le demos al mixin.
+ Así se declara un mixin */
 /* @mixin heading($color: blue, $border-radius: false) {  //le estamos pasando el parametro de color + un color por defaull.
     text-transform: uppercase;
     font-size: 2.4rem;
@@ -19,7 +19,7 @@
 
 @mixin phone {
   @media (min-width: v.$phone) {
-    @content; //* Content nos sirve para poder agrearle contenido tipo block a los mixin de mediasquerys
+    @content;  /* Content nos sirve para poder agrearle contenido tipo block a los mixin de mediasquerys */
   }
 }
 

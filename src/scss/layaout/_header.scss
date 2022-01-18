@@ -1,5 +1,5 @@
 @use "base/variables" as v;
-@use "base/mixins" as m; // se deben colocar name space difernte para evitar choquees
+@use "base/mixins" as m; /* se deben colocar name space difernte para evitar choquees */
 
 .header {
   background-color: v.$verde;
@@ -30,7 +30,7 @@
           align-items: center;
       }
   }
-} //* Esto se le conoce como anidación, se recomienda anidar por bloques para no generar errores.
+} /* Esto se le conoce como anidación, se recomienda anidar por bloques para no generar errores. */
 
 .navegacion-principal {
   @include m.tablet {
@@ -48,8 +48,7 @@
         margin-bottom: 0;
     }
     &:hover {
-      //* al momento de anidar sass nos crea un espacio entre elementos para eliminar ese espacio y poder usar el :hover o :after toca usar el and person o & y elimina el espacio
-      color: v.$amarillo;
+      color: v.$amarillo; /* al momento de anidar sass nos crea un espacio entre elementos para eliminar ese espacio y poder usar el :hover o :after toca usar el and person o & y elimina el espacio */
     }
     &:last-child{
       margin-bottom: 0;

@@ -52,9 +52,10 @@ function css(done) {
     //* 2. Compilar el archivo
         .pipe(sourcemaps.init()) //* iniciamos el sourcemaps
         .pipe(plumber()) // Este nos sirve para que no se detenga por errores, simplemente nos indique en la terminal cual es el error y siga escuchando cambios.
+        .pipe(sass()) // pipe manda la señal y compila con la función de sass, lo mantiene en memoria un momento, pero toca guardarlo proque sino se consume toda la memoria.
         .pipe(postcss([autoprefixer(), cssnano()  ])) //* mejor de css
         .pipe(sourcemaps.write('.')) //* Ubicaicón donde lo vamos a guardar. Usamos el punto . para que sea la misma ubicación de estilos del CSS.
-        .pipe(sass()) // pipe manda la señal y compila con la función de sass, lo mantiene en memoria un momento, pero toca guardarlo proque sino se consume toda la memoria.
+        
         
     //* 3. Almacenarlo
         .pipe(dest('build/css')) // con dest almacenamos en disco duro.

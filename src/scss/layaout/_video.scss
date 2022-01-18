@@ -3,7 +3,7 @@
 
 .video {
   position: relative;
-  max-height: 70rem; // Con este max-he hacemos que crezca hasta cierto punto el vídeo. 
+  max-height: 70rem;  /* Con este max-he hacemos que crezca hasta cierto punto el vídeo.  */
   min-height: 50rem;
   overflow: hidden;
 
@@ -33,7 +33,7 @@
 
 
 .contenido-video {
-    z-index: 1; //Con este z-index sobre ponemos el texto, es muy útil cuando usamos position relative y absolute.
+    z-index: 1; /* Con este z-index sobre ponemos el texto, es muy útil cuando usamos position relative y absolute. */
     h2{
         color: v.$blanco;
         font-size: 7rem;

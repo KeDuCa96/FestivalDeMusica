@@ -1,5 +1,5 @@
-//! El orden es importante
-@forward  'variables';  // no se le coloca base ni la extensión porque solo colocando el nombre del archivo el lo incluye en el index
+/*  El orden es importante */
+@forward  'variables';   /* no se le coloca base ni la extensión porque solo colocando el nombre del archivo el lo incluye en el index */
 @forward 'mixins'; 
 @forward 'normalize';
 @forward 'globales';
