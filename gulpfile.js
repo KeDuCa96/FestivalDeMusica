@@ -40,6 +40,11 @@ const imagemin = require('gulp-imagemin'); //* crear imagenes jpg menos pesadas
 const webp = require('gulp-webp'); //* crear imagenes wepb
 const avif =  require('gulp-avif'); //* crear imagenes avif
 
+
+//? JS
+
+const terser = require('gulp-terser-js'); //* Nos permite minificar el código
+
 //* Primera tarea
 
 
@@ -102,6 +107,9 @@ function versionAvif (done){
 //* Con esto compilamos el código de js en la carpeta build, para al momento de desplegarlo no tengamos que subir el código de la app.
 function javaScript(done){
     src('src/js/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(terser()) //* Compilamos el código de JS
+        .pipe(sourcemaps.write(''))
         .pipe(dest('build/js'));
 
     done();
